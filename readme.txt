@@ -1,0 +1,1 @@
+This script will query the registry of remote computers. Enter the registry path in $key variable and the value to be queried under $valuename variable. Output will be in .csv file. For servers to which the script was unable to connect the status will be shown as 'error' in the csv file

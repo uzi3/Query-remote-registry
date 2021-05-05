@@ -8,7 +8,7 @@ $MacNam
 $Value
 }
 
-$Machines = Get-Content D:\MachineList.txt
+$Machines = Get-Content C:\Temp\MachineList.txt
 
 foreach ($machinename in $Machines)
 {
@@ -25,12 +25,12 @@ $reg = [Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey('LocalMachine', $machine
 Catch
 {
 $Object.Value = "Error"
-$Object | export-csv D:\SRC.csv -Append -NoTypeInformation
+$Object | export-csv C:\Temp\SRC.csv -Append -NoTypeInformation
 continue
 }
 
 $regkey = $reg.opensubkey($key)
 $object.Value = $regkey.getvalue($valuename)
-$Object | export-csv D:\SRC.csv -Append -NoTypeInformation
+$Object | export-csv C:\Temp\SRC.csv -Append -NoTypeInformation
 Clear-Variable Object
 }
